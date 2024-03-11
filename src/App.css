@@ -1,1 +1,4 @@
 /* Edit your global styling here */
+html {
+    box-sizing: border-box;
+}
