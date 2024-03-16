@@ -3,7 +3,7 @@ import Home from "./Home";
 
 
 function App() {
-  return <>Start your Mission X here!🕺
+  return <>
     <Home />
   </>;
 }
