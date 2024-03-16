@@ -1,5 +1,6 @@
 import "./App.css";
-import Home from "./Pages/Home/Home";
+import Home from "./Home";
+
 
 function App() {
   return <>Start your Mission X here!🕺
