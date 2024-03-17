@@ -23,7 +23,7 @@ export default function HomeNav() {
       <div className={Style.navDivLinks}>
         <ul className={Style.navLinks}>
           <li>
-            <Link className={Style.navli} to="/">
+            <Link className={Style.navlink} to="/">
               HOME
             </Link>
           </li>
@@ -43,8 +43,19 @@ export default function HomeNav() {
 
         {/*Login and register links and image */}
         <div className={Style.navDivLoginImgAndText}>
-          <img className={Style.navUserLogo} src={userLogo} alt="" />
-          <p className={Style.navRegisterLoginText}>REGISTER | LOGIN </p>
+          <Link className={Style.navlink} to="/">
+            <img className={Style.navUserLogo} src={userLogo} alt="" />
+          </Link>
+
+          <p className={Style.navRegisterLoginText}>
+            <Link className={Style.navlink} to="/">
+              REGISTER
+            </Link>
+            {" "} | {" "}
+            <Link className={Style.navlink} to="/">
+              LOGIN
+            </Link>
+          </p>
         </div>
       </div>
     </div>

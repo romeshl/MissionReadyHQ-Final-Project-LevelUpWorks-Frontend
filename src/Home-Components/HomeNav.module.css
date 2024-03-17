@@ -26,103 +26,114 @@
 }
 
 .navImgLogo {
+    /* Settings for the Logo */
     width: 174px;
     height: 55px;
 }
+
 /*-----------------------------------------------------------*/
 
 /* Settings for Links and Div holding the links */
 .navDivLinks {
-    width: 33%;
-    min-width: 300px;
     display: flex;
     align-items: flex-end;
+
+    width: 33%;
+    min-width: 300px;
 }
-/* Settings for the unordered list containing links */
+
 .navLinks {
+    /* Settings for the unordered list containing links */
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    
+
     list-style: none;
-    
+
     font-family: "Open Sans";
     font-size: 16px;
     font-weight: bold;
-    
+
     color: white;
-    
+
     width: 100%;
     margin-bottom: 5px;
 }
 
-.navli {
+.navlink {
+    /* Default settings of the links */
     color: white;
     text-decoration: none;
 }
 
-.navli:hover {
+.navlink:hover {
+    /* Hover settings of the links */
     color: yellow;
-    
-    /* background-color: white; */
     cursor: pointer;
-
 }
 
 /*-----------------------------------------------------------*/
 
 /* Sets up the Login-Register section of the Nav area */
 
-.navDivLogin { /* This div works as a container for all the items in the login/register area */
+.navDivLogin {
+    /* This div works as a container for all the items in the login/register including lang text and images area */
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
     flex-direction: column;
+    gap: 10px;
     
     width: 33%;
     min-width: 300px;
 }
 
-.navDivLoginImgAndText { /* Div containing users Logo, Login and Register links */
+.navDivLoginImgAndText {
+    /* Div containing users Logo, Login and Register links */
     display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 5px;
+    align-content: center;
+    gap: 5px;
     justify-content: flex-end;
-    
-    width: 180px;
+
+    width: 190px;
 }
 
-.navUserLogo { /* Settings for User logo */
+.navUserLogo {
+    /* Settings for User logo */
     width: 24px;
     height: 24px;
 }
 
-.navRegisterLoginText { /* Settings for P element for Login-Register */
+.navRegisterLoginText {
+    /* Settings for P element for Login-Register */
     font-family: "Open Sans";
     font-size: 16px;
     font-weight: bold;
+    
     color: white;
 }
 
-.navDivLoginLangImgAndText { /* Div containing Lang text and flag images */
+.navDivLoginLangImgAndText {
+    /* Div containing Lang text and flag images */
     display: flex;
     align-items: center;
     justify-content: flex-end;
     gap: 10px;
-    
+
     width: 170px;
     margin-bottom: 5px;
 }
 
-.navLangText { /* Settings for Lang text */
+.navLangText {
+    /* Settings for Lang text */
     font-family: "Open sans";
     font-size: 11px;
-    
+
     color: white;
 }
 
-.navLangFlags { /* Settings for flag images */
+.navLangFlags {
+    /* Settings for flag images */
     width: 24px;
     height: 12px;
 }
