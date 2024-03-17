@@ -1,0 +1,126 @@
+.bodySection1Div {
+  display: flex;
+  justify-content: center;
+
+  background-image: url("/src/assets/Home/hero.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  min-height: 400px;
+  max-width: 1920px;
+}
+
+.bodySection1DivText {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  flex-wrap: wrap;
+
+  width: 75%;
+  margin-top: 50px;
+}
+
+.bodySection1P {
+  font-family: Nunito;
+  font-size: 55px;
+  font-weight: 900;
+  line-height: 1em;
+
+  color: #6c6c6c;
+
+  max-width: 588px;
+  padding-bottom: 20px;
+}
+
+.bodySection1Span {
+  color: #42c0f6;
+}
+
+.bodySection1P2 {
+  font-family: "Open sans";
+  font-size: 24px;
+  line-height: 1em;
+
+  color: #6c6c6c;
+
+  max-width: 500px;
+  padding-bottom: 20px;
+}
+
+.bodySection1ButtonsDiv {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  column-gap: 60px;
+  row-gap: 20px;
+
+  max-width: 550px;
+  margin-top: 20px;
+}
+
+.bodySection1SignupButtonDiv {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+
+  font-family: "Open sans";
+  font-size: 11px;
+  font-weight: bold;
+  text-align: center;
+
+  width: 180px;
+  padding: 0 10px;
+  padding-bottom: 10px;
+}
+
+.bodySection1ButtonLearnMore {
+  font-family: Nunito;
+  font-weight: 900;
+  font-size: 16px;
+  color: #707070;
+
+  width: 175px;
+  height: 35px;
+
+  background: #ffffff 0% 0% no-repeat padding-box;
+  box-shadow: 0px 4px 5px #00000029;
+  border: 3px solid #43c0f6;
+  border-radius: 7px;
+
+  cursor: pointer;
+}
+
+.bodySection1ButtonLearnMore:hover{
+    color: white;
+    background-color:#43c0f6 ;
+    border: 3px solid #707070;
+}
+
+.bodySection1ButtonSignup {
+  font-family: Nunito;
+  font-weight: 900;
+  font-size: 16px;
+  color: white;
+
+  width: 175px;
+  height: 35px;
+
+  background: #f91c85 0% 0% no-repeat padding-box;
+  box-shadow: 0px 4px 5px #00000029;
+  border-radius: 7px;
+  border: none;
+
+  cursor: pointer;
+}
+
+.bodySection1ButtonSignup:hover {
+    color: #f91c85;
+    background-color: white;
+    border: 3px solid #f91c85;
+}
+
+.bodySection1ButtonLearnMore:active {
+    color: black;
+}

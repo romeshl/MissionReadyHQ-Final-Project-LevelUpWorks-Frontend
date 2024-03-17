@@ -7,7 +7,8 @@ export default function Home() {
     return (
 
         <div className={Style.homeBody}>
-          <HomeNav />
+            <HomeNav />
+            <HomeBody/>
         </div>
       
     );
