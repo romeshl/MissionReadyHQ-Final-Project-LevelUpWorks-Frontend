@@ -30,7 +30,7 @@
   font-family: Nunito;
   font-size: 55px;
   font-weight: 900;
-  line-height: 1em;
+  line-height: 90%;
 
   color: #6c6c6c;
 
@@ -47,7 +47,7 @@
   /* Settings for the second text element */
   font-family: "Open sans";
   font-size: 24px;
-  line-height: 1em;
+  line-height: 97%;
 
   color: #6c6c6c;
 

@@ -18,6 +18,7 @@ export default function HomeBodySection1() {
                         Let us help you advance students in Digital Technologies and other
                         learning areas with our project-based learning programme.
                     </p>
+                    
                     {/* This Div holds the buttons and the small print text */}
                     <div className={Style.bodySection1ButtonsDiv}>
                         {/* Learn more button */}

@@ -1,0 +1,67 @@
+.bodySection2Div {
+ display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+
+  width: 75%;
+
+  
+  border:1px solid blue; 
+  margin: 50px auto;
+}
+
+.bodySection2LeftDiv {
+    border: 2px solid yellow;
+    width: 50%;
+    min-width: 300px;
+    display: flex;
+    flex-flow: column;
+
+}
+
+.bodySection2LeftH2 {
+    font-family: Nunito;
+    font-weight: 900;    
+    font-size: 42px;
+    border: 1px solid pink;
+    color: #6C6C6C;
+    margin-bottom: 20px;
+    line-height: 95%;
+}
+
+.bodySection2LeftP {
+    font-family: "Open sans";
+    font-size: 20px;
+    max-width: 500px;
+    color: #767676;
+    
+    line-height: 97%;
+}
+
+.bodySection2LeftH3 {
+    font-family: Nunito;    
+    font-weight: bold;
+    font-size: 30px;
+    color: #6C6C6C;
+    letter-spacing: 50%;
+    line-height: 95%;
+    margin-top: 50px;
+}
+
+.bodySection2LeftImagesDiv {
+    display: flex;
+    justify-content: space-around;
+    flex-flow: wrap;
+    margin-top: 10px;
+    border: 2px solid green; 
+}
+
+.bodySection2LeftImg {
+    width: 140px;
+    height: 140px;
+}
+
+.bodySection2RightDiv {
+    border: 2px solid red;
+    width: 50%;
+}
