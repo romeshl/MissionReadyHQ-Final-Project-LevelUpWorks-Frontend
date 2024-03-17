@@ -56,9 +56,15 @@
     margin-bottom: 5px;
 }
 
+.navli {
+    color: white;
+    text-decoration: none;
+}
+
 .navli:hover {
-    color: #41BAEF;
-    background-color: white;
+    color: yellow;
+    
+    /* background-color: white; */
     cursor: pointer;
 
 }

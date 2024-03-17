@@ -5,8 +5,10 @@ import Style from "./Home.module.css"
 
 export default function Home() {
     return (
-        <div className = {Style.homeBody}>
-            <HomeNav/>
+
+        <div className={Style.homeBody}>
+          <HomeNav />
         </div>
-    )
+      
+    );
 };
