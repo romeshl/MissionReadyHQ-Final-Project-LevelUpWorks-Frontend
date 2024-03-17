@@ -1,4 +1,7 @@
+/* Settings for the 'Section 1' of the body */
+/*------------------------------------------------------------------------*/
 .bodySection1Div {
+  /* Main div containing all the elements in Section 1*/
   display: flex;
   justify-content: center;
 
@@ -11,7 +14,8 @@
   max-width: 1920px;
 }
 
-.bodySection1DivText {
+.bodySection1DivElements {
+  /* Div containing the 2 text elements and buttons */
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
@@ -22,6 +26,7 @@
 }
 
 .bodySection1P {
+  /* Settings for first Text element */
   font-family: Nunito;
   font-size: 55px;
   font-weight: 900;
@@ -34,10 +39,12 @@
 }
 
 .bodySection1Span {
+  /* Color setting for span element in the first text */
   color: #42c0f6;
 }
 
 .bodySection1P2 {
+  /* Settings for the second text element */
   font-family: "Open sans";
   font-size: 24px;
   line-height: 1em;
@@ -49,6 +56,7 @@
 }
 
 .bodySection1ButtonsDiv {
+  /* This Div holds the buttons */
   display: flex;
   justify-content: flex-end;
   flex-wrap: wrap;
@@ -59,23 +67,8 @@
   margin-top: 20px;
 }
 
-.bodySection1SignupButtonDiv {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  flex-direction: column;
-
-  font-family: "Open sans";
-  font-size: 11px;
-  font-weight: bold;
-  text-align: center;
-
-  width: 180px;
-  padding: 0 10px;
-  padding-bottom: 10px;
-}
-
 .bodySection1ButtonLearnMore {
+  /* Settings for 'Learn More' button */
   font-family: Nunito;
   font-weight: 900;
   font-size: 16px;
@@ -92,13 +85,37 @@
   cursor: pointer;
 }
 
-.bodySection1ButtonLearnMore:hover{
-    color: white;
-    background-color:#43c0f6 ;
-    border: 3px solid #707070;
+.bodySection1ButtonLearnMore:hover {
+  /* Hover Settings for 'Learn More' button */
+  color: white;
+  background-color: #43c0f6;
+  border: 3px solid #707070;
+}
+
+.bodySection1ButtonLearnMore:active {
+  /* Active Settings for 'Learn More' button */
+  color: black;
+}
+
+.bodySection1SignupButtonDiv {
+  /* This Div holds the 'Sign up' button and the text underneath */
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+
+  font-family: "Open sans";
+  font-size: 11px;
+  font-weight: bold;
+  text-align: center;
+
+  width: 180px;
+  padding: 0 10px;
+  padding-bottom: 10px;
 }
 
 .bodySection1ButtonSignup {
+  /* Settings for 'Sign up' button */
   font-family: Nunito;
   font-weight: 900;
   font-size: 16px;
@@ -116,11 +133,14 @@
 }
 
 .bodySection1ButtonSignup:hover {
-    color: #f91c85;
-    background-color: white;
-    border: 3px solid #f91c85;
+  /* Hover Settings for 'Sign up' button */
+  color: #f91c85;
+  background-color: white;
+  border: 3px solid #f91c85;
 }
 
-.bodySection1ButtonLearnMore:active {
-    color: black;
+.bodySection1ButtonSignup:active {
+  /* Active Settings for 'Sign up' button */
+  color: black;
 }
+/*---------------------------------------------------------------------------------*/
