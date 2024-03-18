@@ -1,0 +1,66 @@
+.bodySection3DivTop {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 75%;
+    margin: 50px auto;
+}
+
+.bodySection3TopH2 {
+      font-family: Nunito;
+  font-weight: 900;
+  font-size: 42px;
+  line-height: 95%;
+
+  color: #6c6c6c;
+
+    text-align: center;
+    
+    margin-bottom: 50px;
+}
+
+.bodySection3TopButtonsDiv {
+    display: flex;
+    gap: 10px;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    row-gap: 20px;
+}
+
+.bodySection3TopButtons {
+  /* Settings for 'Learn More' button */
+  font-family: Nunito;
+  font-weight: 900;
+  font-size: 16px;
+  color: #707070;
+
+  min-width: 220px;
+  height: 35px;
+
+  background: #ffffff 0% 0% no-repeat padding-box;
+  box-shadow: 0px 4px 5px #00000029;
+  border: 3px solid #43c0f6;
+  border-radius: 7px;
+
+  cursor: pointer;
+}
+
+.bodySection3TopButtons:hover {
+  /* Hover Settings for 'Learn More' button */
+  color: white;
+  background-color: #43c0f6;
+  border: 3px solid #707070;
+}
+
+.bodySection3TopButtons:active {
+  /* Active Settings for 'Learn More' button */
+  color: black;
+}
+
+.textStyle {
+    background-color: pink;
+}
+
+.textStyle2 {
+    background-color: blue;
+}
