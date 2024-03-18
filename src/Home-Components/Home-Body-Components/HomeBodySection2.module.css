@@ -1,67 +1,142 @@
+/* This div holds all the elements in the top half of the Section 2 */
 .bodySection2Div {
- display: flex;
+  display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
 
   width: 75%;
-
-  
-  border:1px solid blue; 
   margin: 50px auto;
 }
 
 .bodySection2LeftDiv {
-    border: 2px solid yellow;
-    width: 50%;
-    min-width: 300px;
-    display: flex;
-    flex-flow: column;
+  /* This div holds the left side elements of the top half */
+  display: flex;
+  flex-flow: column;
 
+  width: 50%;
+  min-width: 300px;
 }
 
 .bodySection2LeftH2 {
-    font-family: Nunito;
-    font-weight: 900;    
-    font-size: 42px;
-    border: 1px solid pink;
-    color: #6C6C6C;
-    margin-bottom: 20px;
-    line-height: 95%;
+  /* Settings for title of the left side section */
+  font-family: Nunito;
+  font-weight: 900;
+  font-size: 42px;
+  line-height: 95%;
+
+  color: #6c6c6c;
+
+  margin-bottom: 20px;
+  margin-top: 80px;
 }
 
 .bodySection2LeftP {
-    font-family: "Open sans";
-    font-size: 20px;
-    max-width: 500px;
-    color: #767676;
-    
-    line-height: 97%;
+  /* Settings for the text of the left side section */
+  font-family: "Open sans";
+  font-size: 20px;
+  line-height: 97%;
+
+  color: #767676;
+
+  max-width: 500px;
+  margin-top: 20px;
 }
 
 .bodySection2LeftH3 {
-    font-family: Nunito;    
-    font-weight: bold;
-    font-size: 30px;
-    color: #6C6C6C;
-    letter-spacing: 50%;
-    line-height: 95%;
-    margin-top: 50px;
+  /* Settings for the heading of the clickable images on the left side */
+  font-family: Nunito;
+  font-weight: bold;
+  font-size: 30px;
+  letter-spacing: 50%;
+  line-height: 95%;
+
+  color: #6c6c6c;
+
+  margin-top: 70px;
 }
 
 .bodySection2LeftImagesDiv {
-    display: flex;
-    justify-content: space-around;
-    flex-flow: wrap;
-    margin-top: 10px;
-    border: 2px solid green; 
+  /* Settings for the div holding clickable images on the left side */
+  align-self: center;
+  display: flex;
+  justify-content: space-around;
+  flex-flow: wrap;
+  
+  width: 90%;
+  margin-top: 25px;
 }
 
 .bodySection2LeftImg {
-    width: 140px;
-    height: 140px;
+  /* Settings for the clickable images on the left side */
+  width: 135px;
+  height: 135px;
+
+  cursor: pointer;
 }
 
 .bodySection2RightDiv {
-    border: 2px solid red;
-    width: 50%;
+  /* This div hold the elements in the right side of the Section 2 top area */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+
+  width: 50%;
+  min-width: 300px;
+}
+
+.bodySection2RightLaptopImg {
+  /* Settings for img holding the changeable images */
+  width: 100%;
+}
+
+.bodySection2RightUl {
+  /* This UL holds the clickable bullet points */
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  color: #707070;
+
+  list-style: none;
+
+  cursor: pointer;
+
+  height: 20px;
+}
+
+/* This div hold the elements of the bottom part of the Section 2 */
+.bodySection2BottomDiv {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  width: 75%;
+  margin: 100px auto;
+}
+
+.bodySection2BottomH3 {
+  /* Settings for the heading of the bottom part */
+  font-family: Nunito;
+  font-weight: bold;
+  font-size: 30px;
+  text-align: center;
+
+  color: #6c6c6c;
+}
+
+.bodySection2BottomImagesDiv {
+  /* This div holds the images of the bottom part */
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+
+  width: 100%;
+  margin-top: 30px;
+}
+
+.bodySection2BottomImage {
+  /* Settings for img element in the bottom part */
+  width: 22%;
+  min-width: 150px;
 }
