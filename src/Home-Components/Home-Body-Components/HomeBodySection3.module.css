@@ -1,30 +1,34 @@
-.bodySection3DivTop {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 75%;
-    margin: 50px auto;
+.bodySection3TopDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 75%;
+  margin: 50px auto;
+}
+
+.testClass {
+  color: pink;
 }
 
 .bodySection3TopH2 {
-      font-family: Nunito;
+  font-family: Nunito;
   font-weight: 900;
   font-size: 42px;
   line-height: 95%;
 
   color: #6c6c6c;
 
-    text-align: center;
-    
-    margin-bottom: 50px;
+  text-align: center;
+
+  margin-bottom: 50px;
 }
 
 .bodySection3TopButtonsDiv {
-    display: flex;
-    gap: 10px;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    row-gap: 20px;
+  display: flex;
+  gap: 10px;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  row-gap: 20px;
 }
 
 .bodySection3TopButtons {
@@ -57,10 +61,20 @@
   color: black;
 }
 
-.textStyle {
-    background-color: pink;
+.bodySection3BottomDiv {
+  display: flex;
+  width: 100%;
+  background-color: #efeff1;
+  border: 1px solid purple;
+  justify-content: center;
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
 
-.textStyle2 {
-    background-color: blue;
+.bodySection3BottomDivContent {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid red;
+  width: 75%;
+  height: 100px;
 }
