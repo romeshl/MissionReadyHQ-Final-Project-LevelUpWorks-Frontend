@@ -1,9 +1,11 @@
+import HomeBodyBullets from "../../Other-Components/HomeBodyBullets";
 import Style from "./HomeBodySection3.module.css";
 import { useState } from 'react';
 
+import imgClassRoom from "..//../assets/Home/classroom.png"
 
 export default function HomeBodySection3() {
-    
+
     // This array holds the button labels for buttons under the title "How our programme helps..."
     const buttonTexts = ["LEARNING PATHWAYS", "DIGITAL TECHNOLOGIES", "KEY COMPETENCIES", "IR4.0"];
 
@@ -20,24 +22,24 @@ export default function HomeBodySection3() {
                 Details: `Within the programme the students are enabled to express problems 
                 and form solutions that will be designed so a computer can be used to create diverse and encapsulating applications.`
             },
-                {
-                    Title: "DEVELOPING DIGITAL OUTCOMES",
-                    Details: `This programme is designed to strengthen the outcomes 
+            {
+                Title: "DEVELOPING DIGITAL OUTCOMES",
+                Details: `This programme is designed to strengthen the outcomes 
                     of each students personally to form strong applications.`
-                },
-                {
-                    Title: "DESIGNING PROCESSED OUTCOMES",
-                    Details: `Students will be taught the ways of how outcomes are processed, thought about, and produced.
+            },
+            {
+                Title: "DESIGNING PROCESSED OUTCOMES",
+                Details: `Students will be taught the ways of how outcomes are processed, thought about, and produced.
 `
-                }, {
-                    Title: "DEVELOP VISUAL AND SOCIAL COMMUNICATIONS",
-                    Details: `Students will learn to design visually pleasing applications 
+            }, {
+                Title: "DEVELOP VISUAL AND SOCIAL COMMUNICATIONS",
+                Details: `Students will learn to design visually pleasing applications 
                     used to both keep the user aware of what is happening on the screen.`
-                }, {
-                    Title: "STRONG TECHNOLOGICAL PRACTICES",
-                    Details: `The programme will show students the best practices 
+            }, {
+                Title: "STRONG TECHNOLOGICAL PRACTICES",
+                Details: `The programme will show students the best practices 
                     to think and solve the problems brought on by using technology.`
-                }]
+            }]
         },
         {
             "Button text": "DIGITAL TECHNOLOGIES",
@@ -121,35 +123,46 @@ export default function HomeBodySection3() {
         },
     ]
 
-    function ChangeContent(index)
-    {
+    function ChangeContent(index) {
         //alert(index);
         setCurrentIndex(index);
     }
- 
+
     return (
         <>
             <div className={Style.bodySection3TopDiv}>
-                <h2 className={Style.bodySection3TopH2}>How our programme helps teachers and schools</h2>
+                <h2 className={Style.bodySection3TopH2}>
+                    How our programme helps teachers and schools</h2>
                 <div className={Style.bodySection3TopButtonsDiv}>
-                    {/*  {buttonTexts.map((buttonText, index) => { */}
-                    {bodySection3Data.map((data, index)=> {
-                        return <button className={Style.bodySection3TopButtons} onClick={()=>ChangeContent(index)}>{data["Button text"]}</button>
+                    {bodySection3Data.map((data, index) => {
+                        return <button key={index} className=
+                            {(index === CurrentIndex) ? Style.bodySection3TopButtonSelected : Style.bodySection3TopButtons}
+                            onClick={() => ChangeContent(index)}>{data["Button text"]}</button>
                     })}
 
                 </div>
             </div>
-            <div className={Style.bodySection3BottomDiv}>
-                <div className={Style.bodySection3BottomDivContent}>
-                    <h1>{bodySection3Data[CurrentIndex]["Heading"]}</h1>
-                    <h2>{bodySection3Data[CurrentIndex]["Details"]}</h2>
-                    <ul>
-                        {bodySection3Data[CurrentIndex]["Points"].map((data, index) => {
-                            return <li>{data["Title"] + "\u00A0" + data["Details"]}</li>
-                    })}
+            <div className={Style.bodySection3MiddleDiv}>
+                <div className={Style.bodySection3MiddleDivContent}>
+                    <h2 className={Style.bodySection3MiddleDivContentH2}>{bodySection3Data[CurrentIndex]["Heading"]}</h2>
+                    <h3 className={Style.bodySection3MiddleDivContentH3}>{bodySection3Data[CurrentIndex]["Details"]}</h3>
 
-                </ul>
-                    </div>
+                    {bodySection3Data[CurrentIndex]["Points"].map((data, index) => {
+                        return <HomeBodyBullets key={index} Title={data["Title"]} Details={data["Details"]} />
+                    })}
+                </div>
+            </div>
+
+            <div className={Style.bodySection3BottomDiv}>
+                <div className={Style.bodySection3BottomDivLeft}>
+                    <img className={Style.bodySection3BottomDivImage} src={imgClassRoom} alt="" />
+                </div>
+                <div className={Style.bodySection3BottomDivRight}>
+                    <h2>What are you waiting for?</h2>
+                    <h3>Start teaching Digital Technologies today.</h3>
+                    <p>If you need more information, we are happy to answer any questions you may have.</p>
+                </div>
+
             </div>
         </>
     )

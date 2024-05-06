@@ -81,7 +81,7 @@ export default function HomeBodySection2() {
                         {images.map((img, index) => {
                             {/* Will call the SetImageAndOther function based on the index*/ }
                             return <img className={Style.bodySection2LeftImg}
-                                src={img} onClick={()=> SetImageAndOther(index)}/>
+                                src={img} key={index} onClick={()=> SetImageAndOther(index)}/>
                         })}
                     </div>
                 </div>
@@ -107,8 +107,8 @@ export default function HomeBodySection2() {
                 </h3>
                 {/* Loads the images from array to the bottom part of the section */}
                 <div className={Style.bodySection2BottomImagesDiv}>
-                    {imgGroup.map((image) => {
-                        return <img className={Style.bodySection2BottomImage} src={image} />;
+                    {imgGroup.map((image, index) => {
+                        return <img key={index} className={Style.bodySection2BottomImage} src={image} />;
                     })}
                 </div>
             </div>

@@ -1,0 +1,20 @@
+.BulletWrapper {
+    display: flex;
+    align-items: top;
+
+    margin: 10px 0;
+}
+
+.BulletPointImage {
+    height: 40px;
+    width: 40px;
+    margin-right: 10px;
+}
+
+.BulletText {
+    font-family: "Open Sans";
+    font-size: 16px;
+    line-height: 97%;
+
+    margin-bottom: 6px;
+}

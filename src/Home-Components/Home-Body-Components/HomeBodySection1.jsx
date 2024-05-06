@@ -1,4 +1,6 @@
 import Style from "./HomeBodySection1.module.css";
+import ButtonSignUp from "..//..//Other-Components/ButtonSignUp";
+//import ButtonGeneral from "..//..//Other-Components/ButtonGeneral";
 
 export default function HomeBodySection1() {
     return (
@@ -24,13 +26,12 @@ export default function HomeBodySection1() {
                         {/* Learn more button */}
                         <button className={Style.bodySection1ButtonLearnMore}>
                             LEARN MORE
-                        </button>
+                        </button> 
+                        
                         {/* This Div holds the 'Sign up' button and small print text */}
                         <div className={Style.bodySection1SignupButtonDiv}>
                             {/* Sign up button */}
-                            <button
-                                className={Style.bodySection1ButtonSignup}
-                                onClick={() => alert("Ok")}>SIGN UP</button>
+                            <ButtonSignUp Text={"SIGN UP"} Clicked={() => { alert("Text"); }}></ButtonSignUp>
                             {/* Small print text */}
                             *Basic subscription includes the first 15 projects free
                         </div>

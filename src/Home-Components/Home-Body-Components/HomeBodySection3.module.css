@@ -6,10 +6,6 @@
   margin: 50px auto;
 }
 
-.testClass {
-  color: pink;
-}
-
 .bodySection3TopH2 {
   font-family: Nunito;
   font-weight: 900;
@@ -29,6 +25,7 @@
   justify-content: space-around;
   flex-wrap: wrap;
   row-gap: 20px;
+
 }
 
 .bodySection3TopButtons {
@@ -49,6 +46,23 @@
   cursor: pointer;
 }
 
+.bodySection3TopButtonSelected {
+  font-family: Nunito;
+  font-weight: 900;
+  font-size: 16px;
+  color: #707070;
+
+  min-width: 220px;
+  height: 35px;
+
+  background: #EFEFF1 0% 0% no-repeat padding-box;
+  box-shadow: 0px 4px 5px #00000029;
+  border: 3px solid #EFEFF1;
+  border-radius: 7px;
+
+  cursor: pointer; 
+}
+
 .bodySection3TopButtons:hover {
   /* Hover Settings for 'Learn More' button */
   color: white;
@@ -61,20 +75,74 @@
   color: black;
 }
 
-.bodySection3BottomDiv {
+.bodySection3MiddleDiv {
   display: flex;
+  justify-content: center;
+  
   width: 100%;
   background-color: #efeff1;
-  border: 1px solid purple;
-  justify-content: center;
+  border: 1px solid #efeff1;
+
   padding-top: 50px;
   padding-bottom: 50px;
 }
 
-.bodySection3BottomDivContent {
+.bodySection3MiddleDivContent {
   display: flex;
   flex-direction: column;
-  border: 1px solid red;
+  
   width: 75%;
-  height: 100px;
+}
+
+.bodySection3MiddleDivContentH2 {
+  font-family: Nunito;
+  font-weight: 800;
+  font-size: 30px;
+
+  color: #606060;
+
+  margin-bottom: 24px;
+}
+
+.bodySection3MiddleDivContentH3 {
+  font-family: "Open Sans";
+  font-size: 20px;
+
+  color: #606060;
+
+  margin-bottom: 24px;
+
+}
+
+.bodySection3BottomDiv {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+
+  
+  width: 75%;
+  margin: 80px auto;
+  border: 2px solid red;
+
+  
+}
+
+.bodySection3BottomDivLeft {
+  width: 50%;
+  min-width: 300px;
+}
+
+.bodySection3BottomDivImage {
+  width: 100%;
+  max-width: 625px;
+  
+}
+
+.bodySection3BottomDivRight {
+  border: 2px solid green;
+  
+  width: 50%;
+  min-width: 300px;
+  padding: 20px 70px;
+ 
 }
