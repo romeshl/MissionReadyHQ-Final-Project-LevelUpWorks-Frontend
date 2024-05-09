@@ -2,6 +2,9 @@ import HomeBodyBullets from "../../Other-Components/HomeBodyBullets";
 import Style from "./HomeBodySection3.module.css";
 import { useState } from 'react';
 
+import ButtonGeneral from "..//..//Other-Components/ButtonGeneral";
+import ButtonSignUp from "..//..//Other-Components/ButtonSignUp";
+
 import imgClassRoom from "..//../assets/Home/classroom.png"
 
 export default function HomeBodySection3() {
@@ -131,13 +134,13 @@ export default function HomeBodySection3() {
     return (
         <>
             <div className={Style.bodySection3TopDiv}>
-                <h2 className={Style.bodySection3TopH2}>
+                <h2 className={Style.bodySection3H2}>
                     How our programme helps teachers and schools</h2>
                 <div className={Style.bodySection3TopButtonsDiv}>
                     {bodySection3Data.map((data, index) => {
                         return <button key={index} className=
-                            {(index === CurrentIndex) ? Style.bodySection3TopButtonSelected : Style.bodySection3TopButtons}
-                            onClick={() => ChangeContent(index)}>{data["Button text"]}</button>
+                            {(index === CurrentIndex) ? Style.bodySection3TopButtonSelected : Style.bodySection3TopButtons }
+                            onClick={() => ChangeContent(index)} >{data["Button text"]}</button>
                     })}
 
                 </div>
@@ -145,7 +148,7 @@ export default function HomeBodySection3() {
             <div className={Style.bodySection3MiddleDiv}>
                 <div className={Style.bodySection3MiddleDivContent}>
                     <h2 className={Style.bodySection3MiddleDivContentH2}>{bodySection3Data[CurrentIndex]["Heading"]}</h2>
-                    <h3 className={Style.bodySection3MiddleDivContentH3}>{bodySection3Data[CurrentIndex]["Details"]}</h3>
+                    <h3 className={Style.bodySection3H3}>{bodySection3Data[CurrentIndex]["Details"]}</h3>
 
                     {bodySection3Data[CurrentIndex]["Points"].map((data, index) => {
                         return <HomeBodyBullets key={index} Title={data["Title"]} Details={data["Details"]} />
@@ -158,9 +161,13 @@ export default function HomeBodySection3() {
                     <img className={Style.bodySection3BottomDivImage} src={imgClassRoom} alt="" />
                 </div>
                 <div className={Style.bodySection3BottomDivRight}>
-                    <h2>What are you waiting for?</h2>
-                    <h3>Start teaching Digital Technologies today.</h3>
-                    <p>If you need more information, we are happy to answer any questions you may have.</p>
+                    <h2 className={Style.bodySection3BottomH2}>What are you waiting for?</h2>
+                    <h2 className={Style.bodySection3MiddleDivContentH2}>Start teaching Digital Technologies today.</h2>
+                    <h3 className={Style.bodySection3H3}>If you need more information, we are happy to answer any questions you may have.</h3>
+                    <div className= {Style.bodySection3BottomButtonsDiv}>
+                        <ButtonGeneral Text={"ENQUIRE NOW"} />
+                        <ButtonSignUp Text={"SIGN UP"} />
+                    </div>
                 </div>
 
             </div>

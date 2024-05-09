@@ -1,6 +1,6 @@
 import Style from "./HomeBodySection1.module.css";
 import ButtonSignUp from "..//..//Other-Components/ButtonSignUp";
-//import ButtonGeneral from "..//..//Other-Components/ButtonGeneral";
+import ButtonGeneral from "..//..//Other-Components/ButtonGeneral";
 
 export default function HomeBodySection1() {
     return (
@@ -24,10 +24,7 @@ export default function HomeBodySection1() {
                     {/* This Div holds the buttons and the small print text */}
                     <div className={Style.bodySection1ButtonsDiv}>
                         {/* Learn more button */}
-                        <button className={Style.bodySection1ButtonLearnMore}>
-                            LEARN MORE
-                        </button> 
-                        
+                        <ButtonGeneral Text="LEARN MORE"></ButtonGeneral>
                         {/* This Div holds the 'Sign up' button and small print text */}
                         <div className={Style.bodySection1SignupButtonDiv}>
                             {/* Sign up button */}
