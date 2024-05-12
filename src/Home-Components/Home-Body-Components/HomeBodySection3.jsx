@@ -11,7 +11,7 @@ import imgClassRoom from "..//../assets/Home/classroom.png"
 
 import LoginSignup from "..//..//LoginSignup";
 
-export default function HomeBodySection3() {
+export default function HomeBodySection3({ IsLogin, LoginStatus }) {
     // This holds the index the of the button clicked. Sets the initial value as 0 
     const [CurrentIndex, setCurrentIndex] = useState(0);
 
@@ -184,8 +184,8 @@ export default function HomeBodySection3() {
                     <h3 className={Style.bodySection3H3}>If you need more information, we are happy to answer any questions you may have.</h3>
                     <div className= {Style.bodySection3BottomButtonsDiv}>
                         <ButtonGeneral Text={"ENQUIRE NOW"} />
-                        <ButtonSignUp Text={"SIGN UP"} Clicked={toggleOverlay} />
-                        <LoginSignup StartOverlay={isOpen} CloseOverlay={toggleOverlay} LoginOrSignup={"Sign Up"} />
+                        <ButtonSignUp Text={"SIGN UP"} Clicked={() => { toggleOverlay(); LoginStatus(false); }} />
+                        <LoginSignup StartOverlay={isOpen} CloseOverlay={toggleOverlay} IsLogin={IsLogin} LoginStatus={LoginStatus} />
                     </div>
                 </div>
             </div>

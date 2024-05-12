@@ -14,7 +14,7 @@ import MaoriFlag from "../assets/NavBar/MaoriFlag.png";
 import LoginSignup from "..//LoginSignup";
 
 
-export default function HomeNav() {
+export default function HomeNav({IsLogin, LoginStatus}) {
 
   const [userData, setUserData] = useState("");
 
@@ -23,7 +23,6 @@ export default function HomeNav() {
     setIsOpen(!isOpen);
   };
 
-  const [LoginOrSignup, setLoginOrSignup] = useState("");
 
   const configs = {
     animate: true,
@@ -71,13 +70,13 @@ export default function HomeNav() {
 
           {!userData ?
             <>
-              <p className={Style.navRegisterLoginText} onClick={() => { toggleOverlay(); setLoginOrSignup("Log in") }}>
+              <p className={Style.navRegisterLoginText} onClick={() => { toggleOverlay(); LoginStatus(true) }}>
                 Login
               </p>
               <p className={Style.navRegisterLoginText}>
                 |
               </p>
-              <p className={Style.navRegisterLoginText} onClick={() => { toggleOverlay(); setLoginOrSignup("Sign Up") }}>
+              <p className={Style.navRegisterLoginText} onClick={() => { toggleOverlay(); LoginStatus(false) }}>
                 Signup
               </p>
             </>
@@ -85,7 +84,7 @@ export default function HomeNav() {
             <p>test</p> }
 
 
-          <LoginSignup StartOverlay={isOpen} CloseOverlay={toggleOverlay} LoginOrSignup={LoginOrSignup} />
+          <LoginSignup StartOverlay={isOpen} CloseOverlay={toggleOverlay} IsLogin={IsLogin} LoginStatus={LoginStatus}/>
         </div>
       </div>
     </div>

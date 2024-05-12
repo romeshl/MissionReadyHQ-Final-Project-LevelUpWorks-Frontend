@@ -1,5 +1,117 @@
-.OverlayH2 {
-    font-family: tahoma;
-    font-size: 20px;
-    color: red;
+
+.OverlayDiv {
+    display: flex;
+
+}
+
+.MiddleBorderDiv {
+  background-color: #707070;
+  width: 2px;
+  border-radius: 2px;
+
+}
+
+.BorderDiv {
+    display: flex;
+    flex-direction: column;
+    padding: 40px 50px 20px 50px;
+}
+
+.Img {
+    width: 300px;
+    height: 300px;
+}
+
+h2 {
+    font-family: nunito;
+    font-size: 42px;
+    font-weight: 800;
+    text-align: center;
+
+    color: #707070;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.h3Active {
+    font-family: "Open Sans";
+    font-size: 24px;
+    text-align: center;
+    color: #707070;
+
+    margin-bottom: 2px;
+    cursor: pointer;
+}
+
+.h3Inactive {
+    font-family: "Open Sans";
+    font-size: 24px;
+    text-align: center;
+    color: #A5A5A5;
+
+    margin-bottom: 2px;
+        cursor: pointer;
+}
+
+.LoginSignupDiv {
+   display: flex;
+   justify-content: space-evenly; 
+
+}
+
+.LoginDivUnderLineActive {
+    background-color: #43C0F6;
+    height: 5px;
+    width: 90px;
+    border-radius: 5px;
+}
+
+.SignupDivUnderLineActive {
+    background-color: #F91C85;
+    height: 5px;
+    width: 105px;
+    border-radius: 10px;    
+}
+
+.LoginDivUnderLineInactive {
+    
+    height: 5px;
+    width: 90px;
+    border-radius: 5px;
+}
+
+.SignupDivUnderLineInactive {
+
+    height: 5px;
+    width: 105px;
+    border-radius: 10px;   
+    
+
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+
+    margin-top: 50px;
+    margin-bottom: 20px;
+
+}
+
+input {
+    width: 220px;
+    height: 33px;
+
+    border: 1px solid #A29F9f;
+    border-radius: 10px;
+
+    font-family: "Open Sans";
+    font-size: 13px;
+    font-weight: 600;
+
+    padding: 15px;
+
+    color: #A5A5A5;
 }

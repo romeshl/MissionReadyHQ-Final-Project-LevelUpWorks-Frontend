@@ -5,12 +5,14 @@ import { useState } from "react";
 
 import LoginSignup from "..//..//LoginSignup";
 
-export default function HomeBodySection1() {
+export default function HomeBodySection1({ IsLogin, LoginStatus }) {
     
     const [isOpen, setIsOpen] = useState(false);
     const toggleOverlay = () => {
         setIsOpen(!isOpen);
     };
+
+
 
     return (
         <>
@@ -37,8 +39,8 @@ export default function HomeBodySection1() {
                         {/* This Div holds the 'Sign up' button and small print text */}
                         <div className={Style.bodySection1SignupButtonDiv}>
                             {/* Sign up button */}
-                            <ButtonSignUp Text={"SIGN UP"} Clicked={toggleOverlay}></ButtonSignUp>
-                            <LoginSignup StartOverlay={isOpen} CloseOverlay={toggleOverlay} LoginOrSignup={"Sign Up"}/>
+                            <ButtonSignUp Text={"SIGN UP"} Clicked={() => { toggleOverlay(); LoginStatus(false); }}></ButtonSignUp>
+                            <LoginSignup StartOverlay={isOpen} CloseOverlay={toggleOverlay} IsLogin={IsLogin} LoginStatus={LoginStatus} />
                             {/* Small print text */}
                             <p className={Style.bodySection1SignupButtonDivP}>*Basic subscription includes the first 15 projects free</p>
                         </div>
