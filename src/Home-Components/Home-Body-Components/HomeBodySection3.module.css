@@ -1,11 +1,14 @@
+/* Settings for div holding the elements in the top part */
 .bodySection3TopDiv {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  
   width: 75%;
   margin: 50px auto;
 }
 
+/* Settings for H2 headings in this section */
 .bodySection3H2 {
   font-family: Nunito;
   font-weight: 900;
@@ -19,17 +22,17 @@
   margin-bottom: 50px;
 }
 
+/* Settings for div holding the buttons */
 .bodySection3TopButtonsDiv {
   display: flex;
   gap: 10px;
   justify-content: space-around;
   flex-wrap: wrap;
   row-gap: 20px;
-
 }
 
+/* Default settings for buttons on this section */
 .bodySection3TopButtons {
-  /* Settings for 'Learn More' button */
   font-family: Nunito;
   font-weight: 900;
   font-size: 16px;
@@ -46,6 +49,7 @@
   cursor: pointer;
 }
 
+/* Settings when the button was clicked. */
 .bodySection3TopButtonSelected {
   font-family: Nunito;
   font-weight: 900;
@@ -63,18 +67,20 @@
   cursor: pointer; 
 }
 
+/* Button's hover settings */
 .bodySection3TopButtons:hover {
-  /* Hover Settings for 'Learn More' button */
+  
   color: white;
   background-color: #43c0f6;
   border: 3px solid #707070;
 }
 
+/* Button's active settings */ 
 .bodySection3TopButtons:active {
-  /* Active Settings for 'Learn More' button */
   color: black;
 }
 
+/* Settings for the div holding the elements in the middle part  */ 
 .bodySection3MiddleDiv {
   display: flex;
   justify-content: center;
@@ -87,6 +93,7 @@
   padding-bottom: 50px;
 }
 
+/* This div hold all the text in the middle part */
 .bodySection3MiddleDivContent {
   display: flex;
   flex-direction: column;
@@ -94,6 +101,7 @@
   width: 75%;
 }
 
+/* Settings for H2 heading in the middle part */
 .bodySection3MiddleDivContentH2 {
   font-family: Nunito;
   font-weight: 800;
@@ -103,6 +111,7 @@
 
   margin-bottom: 30px;
 }
+
 
 .bodySection3H3 {
   font-family: "Open Sans";
@@ -129,6 +138,7 @@
 .bodySection3BottomDivLeft {
   width: 50%;
   min-width: 300px;
+
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -164,9 +174,10 @@
 
 .bodySection3BottomButtonsDiv {
   display: flex;
-  width: 80%;
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 10px;
+
+  width: 80%;
   margin-top: 20px;
 }

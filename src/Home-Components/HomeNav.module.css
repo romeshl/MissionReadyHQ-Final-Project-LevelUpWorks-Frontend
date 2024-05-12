@@ -86,6 +86,8 @@
     
     width: 33%;
     min-width: 300px;
+
+    cursor: pointer;
 }
 
 .navDivLoginImgAndText {

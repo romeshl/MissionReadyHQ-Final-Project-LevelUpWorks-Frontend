@@ -1,6 +1,8 @@
 import Style from "./HomeFooter.module.css"
 
 export default function HomeFooter() {
+
+    // This object holds all the data displayed on the footer. 
     const footerData = [
         {
             Heading: "COMPANY",
@@ -26,11 +28,10 @@ export default function HomeFooter() {
         }
     ]
 
-
-
     return (
         <>
             <div className={Style.footerDiv}>
+                
                 <div className={Style.footerLinksDiv}>
                     {footerData.map((data, index) => {
                         return (

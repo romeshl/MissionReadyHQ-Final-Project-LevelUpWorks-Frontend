@@ -1,5 +1,9 @@
 // CSS for Nav section html elements
 import Style from "./HomeNav.module.css";
+import React, { useState } from "react";
+import { Link } from "react-router-dom"
+
+import Overlay from "react-overlay-component";
 
 // Images used in this section
 import navLogo from "../assets/NavBar/LevelUpWorks-white.png";
@@ -7,9 +11,27 @@ import userLogo from "../assets/NavBar/Avatar-white.png";
 import NZFlag from "../assets/NavBar/NZFlag.png";
 import MaoriFlag from "../assets/NavBar/MaoriFlag.png";
 
-import { Link } from "react-router-dom"
+import LoginSignup from "..//LoginSignup";
+
 
 export default function HomeNav() {
+
+  const [userData, setUserData] = useState("");
+
+  const [isOpen, setIsOpen] = useState(false);
+  const toggleOverlay = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const [LoginOrSignup, setLoginOrSignup] = useState("");
+
+  const configs = {
+    animate: true,
+    // clickDismiss: false,
+    // escapeDismiss: false,
+    focusOutline: false,
+  };
+
   return (
     // This div contains all the elements in nav section
     <div className={Style.navBackground}>
@@ -47,15 +69,23 @@ export default function HomeNav() {
             <img className={Style.navUserLogo} src={userLogo} alt="" />
           </Link>
 
-          <p className={Style.navRegisterLoginText}>
-            <Link className={Style.navlink} to="/">
-              REGISTER
-            </Link>
-            {" "} | {" "}
-            <Link className={Style.navlink} to="/">
-              LOGIN
-            </Link>
-          </p>
+          {!userData ?
+            <>
+              <p className={Style.navRegisterLoginText} onClick={() => { toggleOverlay(); setLoginOrSignup("Log in") }}>
+                Login
+              </p>
+              <p className={Style.navRegisterLoginText}>
+                |
+              </p>
+              <p className={Style.navRegisterLoginText} onClick={() => { toggleOverlay(); setLoginOrSignup("Sign Up") }}>
+                Signup
+              </p>
+            </>
+            :
+            <p>test</p> }
+
+
+          <LoginSignup StartOverlay={isOpen} CloseOverlay={toggleOverlay} LoginOrSignup={LoginOrSignup} />
         </div>
       </div>
     </div>

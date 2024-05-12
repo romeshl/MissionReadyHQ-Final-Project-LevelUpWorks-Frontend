@@ -1,20 +1,27 @@
-import HomeBodyBullets from "../../Other-Components/HomeBodyBullets";
-import Style from "./HomeBodySection3.module.css";
 import { useState } from 'react';
+import Style from "./HomeBodySection3.module.css";
 
+// Importing components used in this section
+import HomeBodyBullets from "../../Other-Components/HomeBodyBullets";
 import ButtonGeneral from "..//..//Other-Components/ButtonGeneral";
 import ButtonSignUp from "..//..//Other-Components/ButtonSignUp";
 
+// Image for the bottom of the section
 import imgClassRoom from "..//../assets/Home/classroom.png"
 
+import LoginSignup from "..//..//LoginSignup";
+
 export default function HomeBodySection3() {
-
-    // This array holds the button labels for buttons under the title "How our programme helps..."
-    const buttonTexts = ["LEARNING PATHWAYS", "DIGITAL TECHNOLOGIES", "KEY COMPETENCIES", "IR4.0"];
-
     // This holds the index the of the button clicked. Sets the initial value as 0 
     const [CurrentIndex, setCurrentIndex] = useState(0);
 
+    const [isOpen, setIsOpen] = useState(false);
+
+    const toggleOverlay = () => {
+        setIsOpen(!isOpen);
+    };
+
+    // This object holds the data displayed in the middle bit of this section
     const bodySection3Data = [
         {
             "Button text": "LEARNING PATHWAYS",
@@ -126,6 +133,7 @@ export default function HomeBodySection3() {
         },
     ]
 
+    // This function update data in the middle bit of section depending on what button is clicked.
     function ChangeContent(index) {
         //alert(index);
         setCurrentIndex(index);
@@ -133,43 +141,53 @@ export default function HomeBodySection3() {
 
     return (
         <>
+            {/* This div holds the elements in the top bit of this section */}
             <div className={Style.bodySection3TopDiv}>
                 <h2 className={Style.bodySection3H2}>
                     How our programme helps teachers and schools</h2>
+                
+                {/* Loads Button captions from the data object above creates 4 buttons using the map function */}
                 <div className={Style.bodySection3TopButtonsDiv}>
                     {bodySection3Data.map((data, index) => {
-                        return <button key={index} className=
-                            {(index === CurrentIndex) ? Style.bodySection3TopButtonSelected : Style.bodySection3TopButtons }
-                            onClick={() => ChangeContent(index)} >{data["Button text"]}</button>
+                        return <ButtonGeneral key={index} CustomStyle={(index === CurrentIndex) ? Style.bodySection3TopButtonSelected : Style.bodySection3TopButtons}
+                            Clicked={() => ChangeContent(index)} Text ={data["Button text"]}/>
                     })}
-
                 </div>
             </div>
+
+            {/* This div holds the data in the middle bit of this section*/}
             <div className={Style.bodySection3MiddleDiv}>
                 <div className={Style.bodySection3MiddleDivContent}>
+
+                    {/* Title and subtitle of this section is obtained from the data object using the current index */}
                     <h2 className={Style.bodySection3MiddleDivContentH2}>{bodySection3Data[CurrentIndex]["Heading"]}</h2>
                     <h3 className={Style.bodySection3H3}>{bodySection3Data[CurrentIndex]["Details"]}</h3>
 
+                    {/* Loads the bullet point data on to the page by cycling through the data object using map function */}
                     {bodySection3Data[CurrentIndex]["Points"].map((data, index) => {
                         return <HomeBodyBullets key={index} Title={data["Title"]} Details={data["Details"]} />
                     })}
                 </div>
             </div>
 
+            {/* This is the bottom part of the section 3. This div holds all the components in the bottom part. */}
             <div className={Style.bodySection3BottomDiv}>
+                {/* Left side of the bottom part. This div hold the image */}
                 <div className={Style.bodySection3BottomDivLeft}>
                     <img className={Style.bodySection3BottomDivImage} src={imgClassRoom} alt="" />
                 </div>
+
+                {/* Right side of the bottom part. This div hold some headings and button components. */}
                 <div className={Style.bodySection3BottomDivRight}>
                     <h2 className={Style.bodySection3BottomH2}>What are you waiting for?</h2>
                     <h2 className={Style.bodySection3MiddleDivContentH2}>Start teaching Digital Technologies today.</h2>
                     <h3 className={Style.bodySection3H3}>If you need more information, we are happy to answer any questions you may have.</h3>
                     <div className= {Style.bodySection3BottomButtonsDiv}>
                         <ButtonGeneral Text={"ENQUIRE NOW"} />
-                        <ButtonSignUp Text={"SIGN UP"} />
+                        <ButtonSignUp Text={"SIGN UP"} Clicked={toggleOverlay} />
+                        <LoginSignup StartOverlay={isOpen} CloseOverlay={toggleOverlay} LoginOrSignup={"Sign Up"} />
                     </div>
                 </div>
-
             </div>
         </>
     )
