@@ -22,7 +22,7 @@ import imgGroup2 from "../../assets/Home/group2.png";
 import imgGroup3 from "../../assets/Home/group3.png";
 import imgGroup4 from "../../assets/Home/group4.png";
 
-
+// 2nd of 3 of Home -> Body
 export default function HomeBodySection2() {
     const circle = '\u3007'; // Holds the empty circle 
     const filledCircle = '\u2B24'; // Holds filled circle

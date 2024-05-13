@@ -1,9 +1,9 @@
-
+/* Overlay styling */
 .OverlayDiv {
     display: flex;
-
 }
 
+/* grey line in the center */
 .MiddleBorderDiv {
   background-color: #707070;
   width: 2px;
@@ -11,6 +11,7 @@
 
 }
 
+/* inner div */
 .BorderDiv {
     display: flex;
     flex-direction: column;
@@ -33,6 +34,7 @@ h2 {
     margin-bottom: 30px;
 }
 
+/* Styling for active H3 heading */
 .h3Active {
     font-family: "Open Sans";
     font-size: 24px;
@@ -43,6 +45,7 @@ h2 {
     cursor: pointer;
 }
 
+/* Styling for inactive H3 heading */
 .h3Inactive {
     font-family: "Open Sans";
     font-size: 24px;
@@ -53,12 +56,14 @@ h2 {
         cursor: pointer;
 }
 
+/* styling for div holding text and underline */ 
 .LoginSignupDiv {
    display: flex;
    justify-content: space-evenly; 
 
 }
 
+/* styling for active underline */
 .LoginDivUnderLineActive {
     background-color: #43C0F6;
     height: 5px;
@@ -66,6 +71,7 @@ h2 {
     border-radius: 5px;
 }
 
+/* styling for active underline */
 .SignupDivUnderLineActive {
     background-color: #F91C85;
     height: 5px;
@@ -73,22 +79,21 @@ h2 {
     border-radius: 10px;    
 }
 
+/* styling for inactive underline */
 .LoginDivUnderLineInactive {
-    
     height: 5px;
     width: 90px;
     border-radius: 5px;
 }
 
+/* styling for inactive underline */
 .SignupDivUnderLineInactive {
-
     height: 5px;
     width: 105px;
     border-radius: 10px;   
-    
-
 }
 
+/* styling for form */
 form {
     display: flex;
     flex-direction: column;
@@ -97,8 +102,8 @@ form {
 
     margin-top: 50px;
     margin-bottom: 20px;
-
 }
+
 
 input {
     width: 220px;
@@ -114,4 +119,14 @@ input {
     padding: 15px;
 
     color: #A5A5A5;
+}
+
+/* styling for overlay message box */
+.MessageBoxStyling {
+    padding: 60px;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
 }

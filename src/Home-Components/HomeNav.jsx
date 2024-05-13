@@ -1,9 +1,13 @@
 // CSS for Nav section html elements
 import Style from "./HomeNav.module.css";
-import React, { useState } from "react";
+
+import { useState } from "react";
 import { Link } from "react-router-dom"
 
-import Overlay from "react-overlay-component";
+// Components used in this section
+import Overlay from "../Other-Components/Overlay";
+import ButtonSignUp from "../Other-Components/ButtonSignUp";
+import LoginSignup from "..//LoginSignup";
 
 // Images used in this section
 import navLogo from "../assets/NavBar/LevelUpWorks-white.png";
@@ -11,25 +15,22 @@ import userLogo from "../assets/NavBar/Avatar-white.png";
 import NZFlag from "../assets/NavBar/NZFlag.png";
 import MaoriFlag from "../assets/NavBar/MaoriFlag.png";
 
-import LoginSignup from "..//LoginSignup";
+// Nav section of the Home page 
+// IsLogin and LoginStatus is passed down from Home to check and set Login vs Signup section in Login/Signup component
+// UserName and SetUser is passed down from Home to hold and set logged in user
+export default function HomeNav({ IsLogin, LoginStatus, UserName, SetUser }) {
 
-
-export default function HomeNav({IsLogin, LoginStatus}) {
-
-  const [userData, setUserData] = useState("");
-
+  // this useState is used to open and close Login/Signup component
   const [isOpen, setIsOpen] = useState(false);
-  const toggleOverlay = () => {
+  function toggleOverlay() {
     setIsOpen(!isOpen);
   };
 
-
-  const configs = {
-    animate: true,
-    // clickDismiss: false,
-    // escapeDismiss: false,
-    focusOutline: false,
-  };
+  // This useState variable opens and closes message box based on Overlay component
+  const [OverlayMessageBox, setOverlayMessageBox] = useState(false);
+  const ToggleMessageBox = () => {
+    setOverlayMessageBox(!OverlayMessageBox);
+  }
 
   return (
     // This div contains all the elements in nav section
@@ -67,8 +68,9 @@ export default function HomeNav({IsLogin, LoginStatus}) {
           <Link className={Style.navlink} to="/">
             <img className={Style.navUserLogo} src={userLogo} alt="" />
           </Link>
-
-          {!userData ?
+          
+          {/* Checks if user is logged in and displays Login/Signup or user name based of that. */}
+          {UserName==="" ?
             <>
               <p className={Style.navRegisterLoginText} onClick={() => { toggleOverlay(); LoginStatus(true) }}>
                 Login
@@ -81,10 +83,19 @@ export default function HomeNav({IsLogin, LoginStatus}) {
               </p>
             </>
             :
-            <p>test</p> }
-
-
-          <LoginSignup StartOverlay={isOpen} CloseOverlay={toggleOverlay} IsLogin={IsLogin} LoginStatus={LoginStatus}/>
+            <p className={Style.navRegisterLoginText} onClick={ToggleMessageBox}>{UserName}</p>}
+          {/* if a user is logged in and clicked on the name, below message box is displayed asking if you want log off */}
+          <Overlay isOpen={OverlayMessageBox} onClose={ToggleMessageBox}>
+            <div className={Style.MessageBoxStyling}>
+              <h3 className={Style.h3Active}>Are you sure you want to log off?</h3>
+              <div className={Style.MessageBoxStylingButtons}>
+                <ButtonSignUp Text="Log off" Clicked={() => { SetUser("");  ToggleMessageBox(); }}/>
+                <ButtonSignUp Text="Close" Clicked={ToggleMessageBox} />
+              </div>
+            </div>
+          </Overlay>
+          {/* Loads Login/Signup component based on the option selected */}
+          <LoginSignup IsOpen={isOpen} ToggleOverlay={toggleOverlay} IsLogin={IsLogin} LoginStatus={LoginStatus} UserName={UserName} SetUser={SetUser} />
         </div>
       </div>
     </div>

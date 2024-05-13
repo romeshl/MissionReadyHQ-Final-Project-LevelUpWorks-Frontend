@@ -1,18 +1,27 @@
+// loads CSS styles
 import Style from "./HomeBodySection1.module.css";
+
+// Signup button used in this section 
 import ButtonSignUp from "..//..//Other-Components/ButtonSignUp";
+
+// Other general button used in this section
 import ButtonGeneral from "..//..//Other-Components/ButtonGeneral";
+
 import { useState } from "react";
 
+// Login/Signup component is called in this section when the 'Signup' button is clicked
 import LoginSignup from "..//..//LoginSignup";
 
-export default function HomeBodySection1({ IsLogin, LoginStatus }) {
+// This is 1st of 3 parts of the Home -> Body
+// IsLogin and LoginStatus is passed down from Home to check and set Login vs Signup section in Login/Signup component
+// UserName and SetUser is passed down from Home to hold and set logged in user
+export default function HomeBodySection1({ IsLogin, LoginStatus,  UserName, SetUser }) {
     
+    // this useState is used to open and close Login/Signup component
     const [isOpen, setIsOpen] = useState(false);
-    const toggleOverlay = () => {
+    function toggleOverlay() {
         setIsOpen(!isOpen);
     };
-
-
 
     return (
         <>
@@ -40,7 +49,8 @@ export default function HomeBodySection1({ IsLogin, LoginStatus }) {
                         <div className={Style.bodySection1SignupButtonDiv}>
                             {/* Sign up button */}
                             <ButtonSignUp Text={"SIGN UP"} Clicked={() => { toggleOverlay(); LoginStatus(false); }}></ButtonSignUp>
-                            <LoginSignup StartOverlay={isOpen} CloseOverlay={toggleOverlay} IsLogin={IsLogin} LoginStatus={LoginStatus} />
+                            {/* Opens Login/Signup component as Signup when the Signup button above is clicked */}
+                            <LoginSignup IsOpen={isOpen} ToggleOverlay={toggleOverlay} IsLogin={IsLogin} LoginStatus={LoginStatus} UserName={UserName} SetUser={SetUser} />
                             {/* Small print text */}
                             <p className={Style.bodySection1SignupButtonDivP}>*Basic subscription includes the first 15 projects free</p>
                         </div>

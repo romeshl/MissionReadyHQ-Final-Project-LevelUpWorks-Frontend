@@ -1,23 +1,27 @@
 import { useState } from 'react';
+
+// import CSS styling 
 import Style from "./HomeBodySection3.module.css";
 
 // Importing components used in this section
 import HomeBodyBullets from "../../Other-Components/HomeBodyBullets";
 import ButtonGeneral from "..//..//Other-Components/ButtonGeneral";
 import ButtonSignUp from "..//..//Other-Components/ButtonSignUp";
+import LoginSignup from "..//..//LoginSignup";
 
 // Image for the bottom of the section
 import imgClassRoom from "..//../assets/Home/classroom.png"
 
-import LoginSignup from "..//..//LoginSignup";
-
-export default function HomeBodySection3({ IsLogin, LoginStatus }) {
+// 3rd of 3 of Home -> Body
+// IsLogin and LoginStatus is passed down from Home to check and set Login vs Signup section in Login/Signup component
+// UserName and SetUser is passed down from Home to hold and set logged in user
+export default function HomeBodySection3({ IsLogin, LoginStatus, UserName, SetUser }) {
     // This holds the index the of the button clicked. Sets the initial value as 0 
     const [CurrentIndex, setCurrentIndex] = useState(0);
 
+    // this useState is used to open and close Login/Signup component
     const [isOpen, setIsOpen] = useState(false);
-
-    const toggleOverlay = () => {
+    function toggleOverlay() {
         setIsOpen(!isOpen);
     };
 
@@ -135,7 +139,6 @@ export default function HomeBodySection3({ IsLogin, LoginStatus }) {
 
     // This function update data in the middle bit of section depending on what button is clicked.
     function ChangeContent(index) {
-        //alert(index);
         setCurrentIndex(index);
     }
 
@@ -149,6 +152,7 @@ export default function HomeBodySection3({ IsLogin, LoginStatus }) {
                 {/* Loads Button captions from the data object above creates 4 buttons using the map function */}
                 <div className={Style.bodySection3TopButtonsDiv}>
                     {bodySection3Data.map((data, index) => {
+                        {/* Changes the styling of ButtonGeneral depending on whether it's selected or not */}
                         return <ButtonGeneral key={index} CustomStyle={(index === CurrentIndex) ? Style.bodySection3TopButtonSelected : Style.bodySection3TopButtons}
                             Clicked={() => ChangeContent(index)} Text ={data["Button text"]}/>
                     })}
@@ -185,7 +189,8 @@ export default function HomeBodySection3({ IsLogin, LoginStatus }) {
                     <div className= {Style.bodySection3BottomButtonsDiv}>
                         <ButtonGeneral Text={"ENQUIRE NOW"} />
                         <ButtonSignUp Text={"SIGN UP"} Clicked={() => { toggleOverlay(); LoginStatus(false); }} />
-                        <LoginSignup StartOverlay={isOpen} CloseOverlay={toggleOverlay} IsLogin={IsLogin} LoginStatus={LoginStatus} />
+                        {/* Opens Login/Signup component as Signup when the Signup button above is clicked */}
+                        <LoginSignup IsOpen={isOpen} ToggleOverlay={toggleOverlay} IsLogin={IsLogin} LoginStatus={LoginStatus} UserName={UserName} SetUser={SetUser} />
                     </div>
                 </div>
             </div>

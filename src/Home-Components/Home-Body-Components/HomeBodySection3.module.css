@@ -69,7 +69,6 @@
 
 /* Button's hover settings */
 .bodySection3TopButtons:hover {
-  
   color: white;
   background-color: #43c0f6;
   border: 3px solid #707070;
@@ -112,7 +111,7 @@
   margin-bottom: 30px;
 }
 
-
+/* Styling for H3 heading */
 .bodySection3H3 {
   font-family: "Open Sans";
   font-size: 20px;
@@ -123,18 +122,17 @@
 
 }
 
+/* Styling for Div containing all the elements in bottom part*/
 .bodySection3BottomDiv {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
-
   
   width: 75%;
   margin: 80px auto;
-
-  
 }
 
+/* Styling for left side Div containing the image */
 .bodySection3BottomDivLeft {
   width: 50%;
   min-width: 300px;
@@ -144,12 +142,14 @@
   align-items: center;
 }
 
+/* Styling for image on the bottom part */
 .bodySection3BottomDivImage {
   width: 100%;
   max-width: 625px;
   margin: auto 0;
 }
 
+/* Styling for Div holding the elements on the right side of the bottom Div */
 .bodySection3BottomDivRight {
   display: flex;
   flex-direction: column;
@@ -158,9 +158,9 @@
   width: 50%;
   min-width: 300px;
   padding: 20px 50px;
- 
 }
 
+/* Styling for H2 heading of the bottom part */
 .bodySection3BottomH2 {
   font-family: Nunito;
   font-weight: 900;
@@ -172,6 +172,7 @@
   margin-bottom: 50px;
 }
 
+/* Styling for Div holding buttons on bottom right */
 .bodySection3BottomButtonsDiv {
   display: flex;
   justify-content: space-between;

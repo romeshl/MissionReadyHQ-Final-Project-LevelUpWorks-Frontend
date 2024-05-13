@@ -1,3 +1,4 @@
+/* Footer background div */
 .footerDiv {
   background-color: #b2e4fa;
   border: 1px solid #b2e4fa;
@@ -5,6 +6,7 @@
   margin-top: 60px;
 }
 
+/* Footer container div */
 .footerLinksDiv {
   display: flex;
 
@@ -15,6 +17,7 @@
   margin: 100px auto;
 }
 
+/* div holding headings and other data */
 .footLinksSectionDiv {
   min-width: 200px;
   width: 17.5%;
@@ -24,10 +27,12 @@
   flex-grow: 1;
 }
 
+/* last div holding headings and other data */
 .footLinksSectionDiv:last-of-type {
   width: 30%;
 }
 
+/* H2 headings */
 .footerH2 {
   font-family: Nunito;
   font-weight: 800;
@@ -39,6 +44,7 @@
   margin-bottom: 20px;
 }
 
+/* H3 heading displaying links data */
 .footerH3 {
   font-family: "Open Sans";
   font-size: 20px;

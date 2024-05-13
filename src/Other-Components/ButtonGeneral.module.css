@@ -1,5 +1,5 @@
 .buttonGeneral {
-  /* Settings for 'Learn More' button */
+  /* Settings for button */
   font-family: Nunito;
   font-weight: 900;
   font-size: 16px;
@@ -17,13 +17,13 @@
 }
 
 .buttonGeneral:hover {
-  /* Hover Settings for 'Learn More' button */
+  /* Hover Settings for button */
   color: white;
   background-color: #43c0f6;
   border: 3px solid #707070;
 }
 
 .buttonGeneral:active {
-  /* Active Settings for 'Learn More' button */
+  /* Active Settings for button */
   color: black;
 }
