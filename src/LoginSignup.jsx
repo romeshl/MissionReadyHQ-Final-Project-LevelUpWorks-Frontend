@@ -92,8 +92,13 @@ export default function LoginSignup({
     // this function handles the student login option
     const handleStudentLogin = async (event) => {
         event.preventDefault();
+        // checks to see if the inputs are empty, if any of them are empty as error message is displayed
+        if (StudentEmail === "" || StudentPassword === "") {
+            handleErrors(1001);
+            return;
+        }
         try {
-            const response = await fetch('http://lightupworks-backend-f8cf07655fb6.herokuapp.com/students/login', { // Calls the API to check if login data is correct
+            const response = await fetch('https://lightupworks-backend-f8cf07655fb6.herokuapp.com/students/login', { // Calls the API to check if login data is correct
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -120,8 +125,13 @@ export default function LoginSignup({
     // this function handles the teacher login option
     const handleTeacherLogin = async (event) => {
         event.preventDefault();
+        // checks to see if the inputs are empty, if any of them are empty as error message is displayed
+        if (TeacherEmail === "" || TeacherPassword === "") {
+            handleErrors(1001);
+            return;
+        }
         try {
-            const response = await fetch('http://lightupworks-backend-f8cf07655fb6.herokuapp.com/teachers/login', { // Calls the API to check if login data is correct
+            const response = await fetch('https://lightupworks-backend-f8cf07655fb6.herokuapp.com/teachers/login', { // Calls the API to check if login data is correct
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -148,10 +158,15 @@ export default function LoginSignup({
     // this function calls an API to create a new student
     const handleStudentSignup = async (event) => {
         event.preventDefault();
+        // checks to see if the inputs are empty, if any of them are empty as error message is displayed
+        if (StudentEmail === "" || StudentPassword === "" || StudentFullName === "" || StudentConfirmPassword === "")  {
+            handleErrors(1001);
+            return;
+        }
         // Checks if password input and confirm password input are matching
         if (StudentPassword === StudentConfirmPassword) {
             try {
-                const response = await fetch('http://lightupworks-backend-f8cf07655fb6.herokuapp.com/students/signup', {
+                const response = await fetch('https://lightupworks-backend-f8cf07655fb6.herokuapp.com/students/signup', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -185,10 +200,15 @@ export default function LoginSignup({
     // this function calls an API to create a new teacher
     const handleTeacherSignup = async (event) => {
         event.preventDefault();
+        // checks to see if the inputs are empty, if any of them are empty as error message is displayed
+        if (TeacherEmail === "" || TeacherPassword === "" || TeacherFullName === "" || TeacherConfirmPassword === "") {
+            handleErrors(1001);
+            return;
+        }
         // Checks if password input and confirm password input are matching
         if (TeacherPassword === TeacherConfirmPassword) {
             try {
-                const response = await fetch('http://lightupworks-backend-f8cf07655fb6.herokuapp.com/teachers/signup', {
+                const response = await fetch('https://lightupworks-backend-f8cf07655fb6.herokuapp.com/teachers/signup', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -242,6 +262,11 @@ export default function LoginSignup({
                 break;
             case 500:
                 message = <span> Unknown Error.</span>;
+                setMessageToRender(message);
+                ToggleMessageBox(); // displays the message box
+                break;
+            case 1001:  // checks to see if the inputs are empty, if any of them are empty as error message is displayed
+                message = <span> All the fields are required. </span>
                 setMessageToRender(message);
                 ToggleMessageBox(); // displays the message box
                 break;
