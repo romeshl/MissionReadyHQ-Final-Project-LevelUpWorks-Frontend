@@ -90,101 +90,90 @@ export default function LoginSignup({
     }
 
     // this function handles the student login option
-    const handleStudentLogin = (event) => {
+    const handleStudentLogin = async (event) => {
         event.preventDefault();
-
-        fetch('http://localhost:4000/students/login', { // Calls the API to check if login data is correct
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ email: StudentEmail, password: StudentPassword }),
-        })
-            .then(response => { // Check the response from API call
-                if (response.status === 404) { // either email of password is incorrect
-                    const messageToRender = <span> Your email or password was incorrect !</span>;
-                    setMessageToRender(messageToRender);
-                    ToggleMessageBox(); // displays the message box
-                } else if (response.status === 200) { // email and password is correct
-                    clearInputs();
-                    ToggleOverlay();
-                    return response.json(); // resolve the body of the response
-                }
-                else {
-                    console.log(response.status); // displays any other errors on the console
-                }
-            })
-            .then((data) => {
-                SetUser(`Student: ${data.name}`); // get the logged in student name from the response and set the username in the Home->Nav section
-            })
-            .catch(error => console.log(error)); // displays any other errors occurred during the API call on the console
-    }
-
-    // this function handles the teacher login option
-    const handleTeacherLogin = (event) => {
-        event.preventDefault();
-
-        fetch('http://localhost:4000/teachers/login', { // Calls the API to check if login data is correct
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ email: TeacherEmail, password: TeacherPassword }),
-        })
-            .then(response => { // Check the response from API call
-                if (response.status === 404) { // either email of password is incorrect
-                    const messageToRender = <span> Your email or password was incorrect !</span>;
-                    setMessageToRender(messageToRender);
-                    ToggleMessageBox(); // displays the message box
-                } else if (response.status === 200) { // email and password is correct
-                    clearInputs();
-                    ToggleOverlay();
-                    return response.json(); // resolve the body of the response
-                }
-                else {
-                    console.log(response.status); // displays any other errors on the console
-                }
-            })
-            .then((data) => {
-                SetUser(`Teacher: ${data.name}`); // get the logged in teacher name from the response and set the username in the Home->Nav section
-            })
-            .catch(error => console.log(error)); // displays any other errors occurred during the API call on the console
-    }
-
-    // this function calls an API to create a new student
-    const handleStudentSignup = (event) => {
-        event.preventDefault();
-
-        if (StudentPassword === StudentConfirmPassword) { // Checks if password input and confirm password input are matching
-            fetch('http://localhost:4000/students/signup', {
+        try {
+            const response = await fetch('http://lightupworks-backend-f8cf07655fb6.herokuapp.com/students/login', { // Calls the API to check if login data is correct
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ name: StudentFullName, email: StudentEmail, password: StudentPassword }),
-            })
-                .then(response => { // check the response from API call
-                    if (response.status === 404) {
-                        const messageToRender = <span> Error signing up</span>;
-                        setMessageToRender(messageToRender);
-                        ToggleMessageBox();
-                    }
-                    else if (response.status === 409) { // e-mail address already exist in the database
-                        const messageToRender = <span>That student e-mail address already registered.</span>;
-                        setMessageToRender(messageToRender);
-                        ToggleMessageBox(); // shows a message box
-                    }
-                    else if (response.status === 200) { // new student record successfully created
-                        console.log('Success !');
-                        const messageToRender = <span> Successfully signed up. Please login to continue...</span>;
-                        setMessageToRender(messageToRender);
-                        ToggleMessageBox(); // shows a message box 
-                        clearInputs(); // clears inputs
-                        LoginStatus(true); // switch page to login side
-                        SetUser(""); // log off any users that's logged in
-                    }
-                })
-                .catch(error => console.log(error)); // catches any other errors and displays on the console
+                body: JSON.stringify({ email: StudentEmail, password: StudentPassword }),
+            });
+            // if the fetch was successful
+            if (response.status === 200) {
+                clearInputs();
+                ToggleOverlay();
+                // get the logged in student name from the response and set the username in the Home->Nav section
+                const data = await response.json();
+                SetUser(`Student: ${data}`); // set the user to student who logged in
+            }
+            else {
+                handleErrors(response.status); // if the fetch was unsuccessful, call the error handling function.
+            }
+        }
+        catch (err) {
+            console.log(err); // displays any other errors occurred during the API call on the console
+        }
+    }
+
+    // this function handles the teacher login option
+    const handleTeacherLogin = async (event) => {
+        event.preventDefault();
+        try {
+            const response = await fetch('http://lightupworks-backend-f8cf07655fb6.herokuapp.com/teachers/login', { // Calls the API to check if login data is correct
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ email: TeacherEmail, password: TeacherPassword }),
+            });
+            // if the fetch was successful
+            if (response.status === 200) {
+                clearInputs();
+                ToggleOverlay();
+                // get the logged in teacher name from the response and set the username in the Home->Nav section
+                const data = await response.json();
+                SetUser(`Teacher: ${data}`); // set the teacher to student who logged in
+            }
+            else {
+                handleErrors(response.status); // if the fetch was unsuccessful, call the error handling function.
+            }
+        }
+        catch (err) {
+            console.log(err) // displays any other errors occurred during the API call on the console
+        }
+    }
+
+    // this function calls an API to create a new student
+    const handleStudentSignup = async (event) => {
+        event.preventDefault();
+        // Checks if password input and confirm password input are matching
+        if (StudentPassword === StudentConfirmPassword) {
+            try {
+                const response = await fetch('http://lightupworks-backend-f8cf07655fb6.herokuapp.com/students/signup', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ name: StudentFullName, email: StudentEmail, password: StudentPassword })
+                });
+                // if the fetch was successful.. 
+                if (response.status === 200) {
+                    const messageToRender = <span> Successfully signed up. Please login to continue...</span>;
+                    setMessageToRender(messageToRender);
+                    ToggleMessageBox(); // shows a message box 
+                    clearInputs(); // clears inputs
+                    LoginStatus(true); // switch page to login side
+                    SetUser(""); // log off any users that's logged in
+                }
+                else {
+                    handleErrors(response.status); // if the fetch was unsuccessful call the error handling function
+                }
+            }
+            catch (err) {
+                console.log(error); // catches any other errors and displays on the console
+            }
         }
         else { // displays a message box if the passwords are not matching
             const messageToRender = <span>Passwords don't match. Please check and try again.</span>
@@ -194,45 +183,70 @@ export default function LoginSignup({
     }
 
     // this function calls an API to create a new teacher
-    const handleTeacherSignup = (event) => {
+    const handleTeacherSignup = async (event) => {
         event.preventDefault();
+        // Checks if password input and confirm password input are matching
+        if (TeacherPassword === TeacherConfirmPassword) {
+            try {
+                const response = await fetch('http://lightupworks-backend-f8cf07655fb6.herokuapp.com/teachers/signup', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ name: TeacherFullName, email: TeacherEmail, password: TeacherPassword })
+                });
+                // if the fetch was successful.
+                if (response.status === 200) {
+                    const messageToRender = <span> Successfully signed up. Please login to continue...</span>;
+                    setMessageToRender(messageToRender);
+                    ToggleMessageBox(); // shows a message box
+                    clearInputs(); // clears inputs
+                    LoginStatus(true); // switch page to login side
+                    SetUser(""); // log off any users that's logged in
+                }
+                else {
+                    handleErrors(response.status); // if the fetch was unsuccessful call the error handling function
+                }
+            }
+            catch (err) {
+                console.log(err); // catches any other errors and displays on the console
 
-        if (TeacherPassword === TeacherConfirmPassword) { // Checks if password input and confirm password input are matching
-            fetch('http://localhost:4000/teachers/signup', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ name: TeacherFullName, email: TeacherEmail, password: TeacherPassword }),
-            })
-                .then(response => { // check the response from API call
-                    if (response.status === 404) {
-                        const messageToRender = <span> Error signing up</span>;
-                        setMessageToRender(messageToRender);
-                        ToggleMessageBox();
-                    }
-                    else if (response.status === 409) { // e-mail address already exist in the database
-                        const messageToRender = <span> User with email id already exists </span>;
-                        setMessageToRender(messageToRender);
-                        ToggleMessageBox(); // shows a message box
-                    }
-                    else if (response.status === 200) { // new teacher record successfully created
-                        const messageToRender = <span> Successfully signed up. Please login to continue...</span>;
-                        setMessageToRender(messageToRender);
-                        ToggleMessageBox(); // shows a message box
-                        clearInputs(); // clears inputs
-                        LoginStatus(true); // switch page to login side
-                        SetUser(""); // log off any users that's logged in
-                    }
-                })
-                .catch(error => console.log(error)); // catches any other errors and displays on the console
-            console.log('Signup button clicked');
+            }
         }
         else { // displays a message box if the passwords are not matching
             const messageToRender = <span>Passwords don't match. Please check and try again.</span>
             setMessageToRender(messageToRender);
             ToggleMessageBox();
             return;
+        }
+    }
+
+    // The common error handling function for all the Login/Signup functions
+    function handleErrors(err) {
+        let message = "";
+        switch (err) {
+            case 404: // email does not exist in the database
+                message = <span> No user account with that e-mail address.</span>;
+                setMessageToRender(message);
+                ToggleMessageBox(); // displays the message box
+                break;
+            case 401: // wrong password 
+                message = <span> Incorrect password. </span>;
+                setMessageToRender(message);
+                ToggleMessageBox(); // displays the message box
+                break;
+            case 409: // e-mail address already exist in the database
+                message = <span> User with email id already exists </span>;
+                setMessageToRender(message);
+                ToggleMessageBox(); // shows a message box
+                break;
+            case 500:
+                message = <span> Unknown Error.</span>;
+                setMessageToRender(message);
+                ToggleMessageBox(); // displays the message box
+                break;
+            default:
+                console.log(response.status); // displays any other errors on the console
         }
     }
 
@@ -303,14 +317,6 @@ export default function LoginSignup({
                                     value={StudentPassword}
                                 />
                                 <ButtonSignUp Text={"LOG IN"} Clicked={handleStudentLogin}></ButtonSignUp>
-                                {/* displays relevant messages on message box after calling the handleStudentLogin function */}
-                                <Overlay isOpen={OverlayMessageBox} onClose={ToggleMessageBox}>
-                                    <div className={Style.MessageBoxStyling}>
-                                        <h3 className={Style.h3Active}>{messageToRender}</h3>
-                                        <ButtonSignUp Text="Close" Clicked={ToggleMessageBox} />
-
-                                    </div>
-                                </Overlay>
                             </form>
                         ) : (
                             <form>
@@ -343,15 +349,17 @@ export default function LoginSignup({
                                     value={StudentConfirmPassword}
                                 />
                                 <ButtonSignUp Text={"SIGN UP"} Clicked={handleStudentSignup}></ButtonSignUp>
-                                {/* displays relevant messages on message box after calling the handleStudentSignup function */}
-                                <Overlay isOpen={OverlayMessageBox} onClose={ToggleMessageBox}>
-                                    <div className={Style.MessageBoxStyling}>
-                                        <h3 className={Style.h3Active}>{messageToRender}</h3>
-                                        <ButtonSignUp Text="Close" Clicked={ToggleMessageBox} />
-                                    </div>
-                                </Overlay>
+
                             </form>
                         )}
+                        {/* displays relevant messages on message box after calling the handleStudentLogin function */}
+                        <Overlay isOpen={OverlayMessageBox} onClose={ToggleMessageBox}>
+                            <div className={Style.MessageBoxStyling}>
+                                <h3 className={Style.h3Active}>{messageToRender}</h3>
+                                <ButtonSignUp Text="Close" Clicked={ToggleMessageBox} />
+
+                            </div>
+                        </Overlay>
                     </div>
 
                     {/* displays grey line dividing student and teacher sections */}
@@ -419,13 +427,7 @@ export default function LoginSignup({
                                     value={TeacherPassword}
                                 />
                                 <ButtonSignUp Text={"LOG IN"} Clicked={handleTeacherLogin}></ButtonSignUp>
-                                {/* displays relevant messages on message box after calling the handleTeacherLogin function */}
-                                <Overlay isOpen={OverlayMessageBox} onClose={ToggleMessageBox}>
-                                    <div className={Style.MessageBoxStyling}>
-                                        <h3 className={Style.h3Active}>{messageToRender}</h3>
-                                        <ButtonSignUp Text="Close" Clicked={ToggleMessageBox} />
-                                    </div>
-                                </Overlay>
+
                             </form>
                         ) : (
                             <form>
@@ -458,15 +460,17 @@ export default function LoginSignup({
                                     value={TeacherConfirmPassword}
                                 />
                                 <ButtonSignUp Text={"SIGN UP"} Clicked={handleTeacherSignup}></ButtonSignUp>
-                                {/* displays relevant messages on message box after calling the handleTeacherSignup function */}
-                                <Overlay isOpen={OverlayMessageBox} onClose={ToggleMessageBox}>
-                                    <div className={Style.MessageBoxStyling}>
-                                        <h3 className={Style.h3Active}>{messageToRender}</h3>
-                                        <ButtonSignUp Text="Close" Clicked={ToggleMessageBox} />
-                                    </div>
-                                </Overlay>
+
                             </form>
                         )}
+                        {/* displays relevant messages on message box after calling the handleStudentLogin function */}
+                        <Overlay isOpen={OverlayMessageBox} onClose={ToggleMessageBox}>
+                            <div className={Style.MessageBoxStyling}>
+                                <h3 className={Style.h3Active}>{messageToRender}</h3>
+                                <ButtonSignUp Text="Close" Clicked={ToggleMessageBox} />
+
+                            </div>
+                        </Overlay>
                     </div>
                 </div>
             </Overlay>
