@@ -12,7 +12,7 @@ The backend code of the app can be found at the link below.
 
 [Backend](https://github.com/romeshl/MissionReadyHQ-Final-Project-LevelUpWorks-Backend)
 
-It was a group proejct and I choose *Home and Login/Signup* pages. 
+It was a group project and I choose *Home and Login/Signup* pages. 
 
 More information and specs about the *Mission X* can be found in the *Mission X instructions* folder. 
 
