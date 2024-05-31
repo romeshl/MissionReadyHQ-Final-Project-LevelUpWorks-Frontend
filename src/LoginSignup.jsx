@@ -159,7 +159,7 @@ export default function LoginSignup({
     const handleStudentSignup = async (event) => {
         event.preventDefault();
         // checks to see if the inputs are empty, if any of them are empty as error message is displayed
-        if (StudentEmail === "" || StudentPassword === "" || StudentFullName === "" || StudentConfirmPassword === "")  {
+        if (StudentEmail === "" || StudentPassword === "" || StudentFullName === "" || StudentConfirmPassword === "") {
             handleErrors(1001);
             return;
         }
